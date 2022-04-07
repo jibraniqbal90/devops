@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: testsvc
+  namespace: dev
+  labels:
+    name: iqbal
+spec:
+  type: NodePort
+  ports:
+    - nodePort: 32000
+      port: 80
+      targetPort: 8080
+  selector:
+    name: test-label

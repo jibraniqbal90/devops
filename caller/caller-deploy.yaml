@@ -1,0 +1,19 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: caller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: caller-label
+  template:
+    metadata:
+      name: caller-pod
+      labels:
+        name: caller-label
+    spec:
+      containers:
+        - name: callercontainer
+          image: caller
+          imagePullPolicy: Never

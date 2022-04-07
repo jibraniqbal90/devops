@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: callersvc
+  labels:
+    name: mylabel
+spec:
+  type: NodePort
+  ports:
+    - nodePort: 32001
+      port: 80
+      targetPort: 8080
+  selector:
+    name: caller-label
