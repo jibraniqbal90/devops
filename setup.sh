@@ -3,6 +3,10 @@
 
 eval $(minikube docker-env)
 
+# Create build
+cd test && ./gradlew build
+cd ../caller && ./gradlew build
+cd ..
 # Create images
 docker build -t caller caller && docker build -t test test
 kubectl apply -f test/test-deploy.yaml && kubectl apply -f caller/caller-deploy.yaml
