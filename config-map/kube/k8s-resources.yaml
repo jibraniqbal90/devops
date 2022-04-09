@@ -1,0 +1,47 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: cmdeploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: cm-label
+  template:
+    metadata:
+      name: cm-pod
+      labels:
+        name: cm-label
+    spec:
+      containers:
+        - name: cmcontainer
+          image: cmdemo
+          envFrom:
+            - configMapRef:
+                name: mycm
+          imagePullPolicy: Never
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: cmsvc
+spec:
+  type: NodePort
+  ports:
+    - nodePort: 32002
+      port: 80
+      targetPort: 8080
+  selector:
+    name: cm-label
+
+---
+
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: mycm
+data:
+  VALUE_ONE: Jibran
+  VALUE_TWO: Iqbal
