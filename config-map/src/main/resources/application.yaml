@@ -1,3 +1,4 @@
 cm:
   value-one: ${VALUE_ONE}
   value-two: ${VALUE_TWO}
+  html-content: ${HTML_CONTENT}

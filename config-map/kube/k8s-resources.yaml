@@ -45,3 +45,12 @@ metadata:
 data:
   VALUE_ONE: Jibran
   VALUE_TWO: Iqbal
+  HTML_CONTENT: |
+    <html>
+      <head>
+        <title>Inecting file in config map</title>
+      </head>
+      <body style="background-color:powderblue">
+        File injected in Config map demo.
+      </body>
+    <html>

@@ -15,4 +15,11 @@ public class ConfigMapsController {
 
         return reader.getValueOne()+" "+ reader.getValueTwo();
     }
+
+    @GetMapping("/html")
+    public String htmlContent(){
+        return reader.getHtmlContent();
+    }
+
+
 }

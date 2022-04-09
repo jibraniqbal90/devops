@@ -13,5 +13,6 @@ public class ConfigReader {
 
     private String valueOne;
     private String valueTwo;
+    private String htmlContent;
 
 }
